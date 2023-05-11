@@ -1,0 +1,27 @@
+.statsBar {
+	width: 460px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.block {
+	width: 140px;
+	height: 72px;
+	border-radius: 15px;
+}
+
+.xBlock {
+	@extend .block;
+	background-color: #31c3bd;
+}
+
+.tiesBlock {
+	@extend .block;
+	background-color: #a8bfc9;
+}
+
+.yBlock {
+	@extend .block;
+	background-color: #f2b137;
+}

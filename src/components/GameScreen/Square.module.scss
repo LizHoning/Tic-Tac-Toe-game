@@ -1,0 +1,15 @@
+.square {
+	background-color: #1f3641;
+	width: 140px;
+	height: 140px;
+	box-shadow: 0px -8px 0px 0px #10212a inset;
+	border-radius: 15px;
+	display: flex;
+	justify-content: center;
+}
+
+.icon {
+	height: 64px;
+	width: 64px;
+	margin-top: 36px; // todo: calculate something to get to this number
+}

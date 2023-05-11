@@ -1,0 +1,13 @@
+.gameBoard {
+	display: flex;
+	flex-direction: column;
+	height: 460px;
+	width: 460px;
+	justify-content: space-between;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
