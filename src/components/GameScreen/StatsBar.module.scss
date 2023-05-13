@@ -1,3 +1,5 @@
+@use "src/assets/css/colours";
+
 .statsBar {
 	width: 460px;
 	display: flex;
@@ -13,15 +15,15 @@
 
 .xBlock {
 	@extend .block;
-	background-color: #31c3bd;
+	background-color: colours.$light-blue;
 }
 
 .tiesBlock {
 	@extend .block;
-	background-color: #a8bfc9;
+	background-color: colours.$silver;
 }
 
 .yBlock {
 	@extend .block;
-	background-color: #f2b137;
+	background-color: colours.$light-yellow;
 }

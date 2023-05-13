@@ -1,7 +1,7 @@
 import style from "./TurnBar.module.scss";
-import iconRestart from "../../assets/icon-restart.svg";
-import iconXSilver from "../../assets/icon-x-silver.svg";
-import logo from "../../assets/logo.svg";
+import iconRestart from "../../assets/images/icon-restart.svg";
+import iconXSilver from "../../assets/images/icon-x-silver.svg";
+import logo from "../../assets/images/logo.svg";
 
 const TurnBar = () => {
 	return (

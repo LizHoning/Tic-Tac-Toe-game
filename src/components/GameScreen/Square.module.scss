@@ -1,5 +1,7 @@
+@use "src/assets/css/colours";
+
 .square {
-	background-color: #1f3641;
+	background-color: colours.$semi-dark-navy;
 	width: 140px;
 	height: 140px;
 	box-shadow: 0px -8px 0px 0px #10212a inset;

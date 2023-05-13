@@ -1,3 +1,6 @@
+@use "src/assets/css/colours";
+@use "src/assets/css/fonts";
+
 .turnBar {
 	display: flex;
 	justify-content: space-between;
@@ -7,7 +10,7 @@
 .turnDisplay {
 	width: 140px;
 	height: 52px;
-	background-color: #1f3641;
+	background-color: colours.$semi-dark-navy;
 	box-shadow: 0px -8px 0px 0px #10212a inset;
 	border-radius: 10px;
 	display: flex;
@@ -31,7 +34,7 @@
 .restartButton {
 	height: 52px;
 	width: 52px;
-	background-color: #a8bfc9;
+	background-color: colours.$silver;
 	border-radius: 10px;
 	display: flex;
 	justify-content: center;
@@ -47,5 +50,5 @@
 	font-size: 16px;
 	line-height: 20px;
 	letter-spacing: 1px;
-	color: #a8bfc9;
+	color: colours.$silver;
 }

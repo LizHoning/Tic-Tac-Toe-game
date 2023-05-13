@@ -1,15 +1,15 @@
 import style from "./Button.module.scss";
+import { PropsWithChildren } from "react";
 
-interface buttonProps {
-	text: string;
+interface ButtonProps {
 	className?: string;
 }
 
-const Button = ({ text, className }: buttonProps) => {
+const Button = ({ children, className }: PropsWithChildren<ButtonProps>) => {
 	const classes = className ? `${style.button} ${className} ` : style.button;
 	return (
 		<button type="button" className={classes}>
-			{text}
+			{children}
 		</button>
 	);
 };

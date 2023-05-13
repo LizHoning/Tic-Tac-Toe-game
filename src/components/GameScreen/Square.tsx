@@ -1,5 +1,5 @@
 import style from "./Square.module.scss";
-import iconX from "../../assets/icon-x.svg";
+import iconX from "../../assets/images/icon-x.svg";
 
 const Square = () => {
 	return (
