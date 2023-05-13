@@ -1,4 +1,5 @@
 @use "src/assets/css/colours";
+@use "src/assets/css/fonts";
 
 .statsBar {
 	width: 460px;
@@ -11,6 +12,18 @@
 	width: 140px;
 	height: 72px;
 	border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.blockContent {
+	height: 48px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .xBlock {
@@ -26,4 +39,25 @@
 .yBlock {
 	@extend .block;
 	background-color: colours.$light-yellow;
+}
+
+.title {
+	font-family: Outfit;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 18px;
+	text-transform: uppercase;
+	letter-spacing: 0.875px;
+}
+
+.count {
+	font-family: Outfit;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 30px;
+	text-align: center;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
 }
