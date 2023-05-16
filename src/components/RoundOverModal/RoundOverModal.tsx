@@ -1,9 +1,11 @@
 import style from "./RoundOverModal.module.scss";
 import Button from "../common/Button";
-import iconX from "../../assets/images/icon-x.svg";
-import iconO from "../../assets/images/icon-o.svg";
+
+import { ReactComponent as IconX } from "../../assets/images/icon-x.svg";
+import { ReactComponent as IconO } from "../../assets/images/icon-o.svg";
 
 const RoundOverModal = () => {
+	const Icon = IconO;
 	return (
 		<>
 			<div className={style.background} />
@@ -11,7 +13,7 @@ const RoundOverModal = () => {
 				<div className={style.modal}>
 					<div className={style.secondaryOutcomeText}>You won!</div>
 					<div className={style.primaryOutcomeText}>
-						<img className={style.icon} src={iconX} alt="X" />
+						<Icon className={style.icon} />
 						<div className={style.text}>takes the round</div>
 					</div>
 					<div className={style.buttons}>

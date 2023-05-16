@@ -1,5 +1,6 @@
 import style from "./Button.module.scss";
 import { PropsWithChildren } from "react";
+import classNames from "classnames";
 
 interface ButtonProps {
 	className?: string;
@@ -11,8 +12,9 @@ const Button = ({
 	className,
 	color,
 }: PropsWithChildren<ButtonProps>) => {
-	const buttonStyles = `${style.button} ${style[color]}`;
-	const classes = className ? `${buttonStyles} ${className} ` : buttonStyles;
+	// Creates a className string with the default button style,
+	// the selected color styles, and an optional className prop.
+	const classes = classNames(style.button, style[color], className);
 	return (
 		<button type="button" className={classes}>
 			{children}

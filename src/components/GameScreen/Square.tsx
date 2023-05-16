@@ -1,10 +1,11 @@
 import style from "./Square.module.scss";
-import iconX from "../../assets/images/icon-x.svg";
+import { ReactComponent as IconX } from "../../assets/images/icon-x.svg";
+import { ReactComponent as IconO } from "../../assets/images/icon-o.svg";
 
 const Square = () => {
 	return (
 		<div className={style.square}>
-			<img className={style.icon} src={iconX} alt="X" />
+			<IconX className={style.icon} />
 		</div>
 	);
 };

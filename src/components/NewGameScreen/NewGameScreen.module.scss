@@ -8,104 +8,30 @@
 	justify-content: space-between;
 	height: 460px;
 	width: 460px;
-}
 
-.logo {
-	height: 32px;
-	width: 72px;
-}
-
-.playerSelector {
-	width: 460px;
-	height: 200px;
-	padding-bottom: 5px;
-	background: colors.$semi-dark-navy;
-	box-shadow: inset 0px -8px 0px #10212a;
-	border-radius: 15px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-evenly;
-}
-
-.playerSelectorContainer {
-	background: #1a2a33;
-	border-radius: 10px;
-	height: 72px;
-	width: 412px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.selectX {
-	width: 198px;
-	height: 54px;
-	border-radius: 10px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	&:hover {
-		background-color: rgba(168, 191, 201, 0.05);
+	.logo {
+		height: 32px;
+		width: 72px;
 	}
-}
 
-.selectO {
-	width: 198px;
-	height: 54px;
-	border-radius: 10px;
-	background-color: colors.$silver;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
+	.buttons {
+		height: 154px;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 
-.icon {
-	height: 32px;
-	width: 32px;
-}
-
-.buttons {
-	height: 154px;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.btn {
-	font-family: Outfit;
-	font-style: normal;
-	font-weight: 700;
-	font-size: 20px;
-	line-height: 25px;
-	text-align: center;
-	letter-spacing: 1.25px;
-	text-transform: uppercase;
-	height: 67px;
-	box-shadow: inset 0px -8px 0px 0px rgba(0, 0, 0, 0.25);
-}
-
-.instructionText {
-	font-family: Outfit;
-	font-style: normal;
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 20px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	color: colors.$silver;
-}
-
-.reminderText {
-	font-family: Outfit;
-	font-style: normal;
-	font-weight: 500;
-	font-size: 14px;
-	line-height: 18px;
-	text-transform: uppercase;
-	letter-spacing: 0.875px;
-	color: colors.$silver;
-	opacity: 0.5;
+		.button {
+			font-family: Outfit;
+			font-style: normal;
+			font-weight: 700;
+			font-size: 20px;
+			line-height: 25px;
+			text-align: center;
+			letter-spacing: 1.25px;
+			text-transform: uppercase;
+			height: 67px;
+			box-shadow: inset 0px -8px 0px 0px rgba(0, 0, 0, 0.25);
+		}
+	}
 }
