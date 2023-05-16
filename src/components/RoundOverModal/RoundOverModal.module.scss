@@ -1,4 +1,4 @@
-@use "src/assets/css/colours";
+@use "src/assets/css/colors";
 @use "src/assets/css/fonts";
 
 .background {
@@ -16,7 +16,7 @@
 	align-items: center;
 	width: 100vw;
 	height: 266px;
-	background-color: colours.$semi-dark-navy;
+	background-color: colors.$semi-dark-navy;
 }
 
 .modal {
@@ -33,14 +33,10 @@
 	justify-content: space-between;
 }
 
-.btnColour {
-	background-color: red;
-}
-
 .quitButton {
 	width: 76px;
 	height: 52px;
-	background-color: colours.$silver;
+	background-color: colors.$silver;
 	border-radius: 10px;
 	display: flex;
 	justify-content: center;
@@ -51,7 +47,7 @@
 .nextRoundButton {
 	height: 52px;
 	width: 52px;
-	background-color: colours.$silver;
+	background-color: colors.$silver;
 	border-radius: 10px;
 	display: flex;
 	justify-content: center;
@@ -76,7 +72,7 @@
 		line-height: 50px;
 		letter-spacing: 2.5px;
 		text-transform: uppercase;
-		color: colours.$light-blue;
+		color: colors.$light-blue;
 		padding-left: 20px;
 	}
 }
@@ -89,5 +85,5 @@
 	line-height: 20px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	color: colours.$silver;
+	color: colors.$silver;
 }

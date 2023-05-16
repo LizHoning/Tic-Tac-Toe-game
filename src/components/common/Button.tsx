@@ -3,10 +3,16 @@ import { PropsWithChildren } from "react";
 
 interface ButtonProps {
 	className?: string;
+	color: "blue" | "yellow" | "silver";
 }
 
-const Button = ({ children, className }: PropsWithChildren<ButtonProps>) => {
-	const classes = className ? `${style.button} ${className} ` : style.button;
+const Button = ({
+	children,
+	className,
+	color,
+}: PropsWithChildren<ButtonProps>) => {
+	const buttonStyles = `${style.button} ${style[color]}`;
+	const classes = className ? `${buttonStyles} ${className} ` : buttonStyles;
 	return (
 		<button type="button" className={classes}>
 			{children}

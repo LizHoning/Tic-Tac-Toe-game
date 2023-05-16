@@ -15,8 +15,8 @@ const RoundOverModal = () => {
 						<div className={style.text}>takes the round</div>
 					</div>
 					<div className={style.buttons}>
-						<Button>Quit</Button>
-						<Button className={style.btnColour}>Next round</Button>
+						<Button color="silver">Quit</Button>
+						<Button color="yellow">Next round</Button>
 					</div>
 				</div>
 			</div>

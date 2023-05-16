@@ -1,9 +1,9 @@
-@use "src/assets/css/colours";
+@use "src/assets/css/colors";
 
 .App {
 	height: 100vh;
-	background-color: colours.$dark-navy;
-	color: colours.$dark-navy;
+	background-color: colors.$dark-navy;
+	color: colors.$dark-navy;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

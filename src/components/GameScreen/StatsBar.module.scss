@@ -1,4 +1,4 @@
-@use "src/assets/css/colours";
+@use "src/assets/css/colors";
 @use "src/assets/css/fonts";
 
 .statsBar {
@@ -28,17 +28,17 @@
 
 .xBlock {
 	@extend .block;
-	background-color: colours.$light-blue;
+	background-color: colors.$light-blue;
 }
 
 .tiesBlock {
 	@extend .block;
-	background-color: colours.$silver;
+	background-color: colors.$silver;
 }
 
 .yBlock {
 	@extend .block;
-	background-color: colours.$light-yellow;
+	background-color: colors.$light-yellow;
 }
 
 .title {

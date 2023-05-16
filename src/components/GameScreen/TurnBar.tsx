@@ -6,7 +6,7 @@ import logo from "../../assets/images/logo.svg";
 const TurnBar = () => {
 	return (
 		<div className={style.turnBar}>
-			<img className={style.logo} src={logo} alt="X" />
+			<img className={style.logo} src={logo} alt="XO logo" />
 			<div className={style.turnDisplay}>
 				<div className={style.turnDisplayContents}>
 					<img className={style.turnIcon} src={iconXSilver} alt="X" />

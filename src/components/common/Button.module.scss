@@ -1,22 +1,43 @@
-@use "src/assets/css/colours";
+@use "src/assets/css/colors";
 @use "src/assets/css/fonts";
 
 .button {
 	height: 52px;
 	padding-left: 16px;
 	padding-right: 16px;
-	background-color: colours.$silver;
+	background-color: colors.$silver;
 	border-radius: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border: none;
 	box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.25) inset;
-	color: colours.$dark-navy;
+	color: colors.$dark-navy;
 	font-family: Outfit;
 	font-style: normal;
 	font-weight: 700;
 	font-size: 16px;
 	letter-spacing: 1px;
 	text-transform: uppercase;
+}
+
+.blue {
+	background-color: colors.$light-blue;
+	&:hover {
+		background-color: colors.$light-blue-hover;
+	}
+}
+
+.yellow {
+	background-color: colors.$light-yellow;
+	&:hover {
+		background-color: colors.$light-yellow-hover;
+	}
+}
+
+.silver {
+	background-color: colors.$silver;
+	&:hover {
+		background-color: colors.$silver-hover;
+	}
 }

@@ -17,7 +17,7 @@ const StatsBar = () => {
 			</div>
 			<div className={style.yBlock}>
 				<div className={style.blockContent}>
-					<div className={style.title}>O (cpu)</div>
+					<div className={style.title}>O (CPU)</div>
 					<div className={style.count}>20</div>
 				</div>
 			</div>
