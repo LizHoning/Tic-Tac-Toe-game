@@ -1,3 +1,6 @@
+@use "src/assets/css/colors";
+@use "src/assets/css/fonts";
+
 .modalContents {
 	display: flex;
 	flex-direction: column;
@@ -5,9 +8,20 @@
 	align-items: center;
 	height: 133px;
 
+	.text {
+		color: colors.$silver;
+		font-family: Outfit;
+		font-style: normal;
+		font-weight: 700;
+		font-size: 40px;
+		line-height: 50px;
+		letter-spacing: 2.5px;
+		text-transform: uppercase;
+	}
+
 	.buttons {
 		display: flex;
-		width: 238px;
+		width: 306px;
 		justify-content: space-between;
 
 		.button {
@@ -17,9 +31,5 @@
 			letter-spacing: 1px;
 			box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.25) inset;
 		}
-	}
-
-	&.hasSecondaryText {
-		height: 176px;
 	}
 }

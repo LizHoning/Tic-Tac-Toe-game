@@ -1,5 +1,6 @@
 import style from "./RoundOverModal.module.scss";
 import classNames from "classnames";
+import Modal from "../common/Modal";
 import Button from "../common/Button";
 import SecondaryOutcomeText from "./SecondaryOutcomeText";
 import PrimaryOutcomeText from "./PrimaryOutcomeText";
@@ -17,34 +18,31 @@ const RoundOverModal = () => {
 	// @ts-expect-error
 	const isTie = winner === TIE;
 
-	const modalClasses = classNames(style.modal, {
+	const modalClasses = classNames(style.modalContents, {
 		[style.hasSecondaryText]: !isTie,
 	});
 
 	return (
-		<>
-			<div className={style.background} />
-			<div className={style.modalContainer}>
-				<div className={modalClasses}>
-					{!isTie && (
-						<SecondaryOutcomeText
-							winner={winner}
-							player1={player1}
-							isCPU={isCPU}
-						/>
-					)}
-					<PrimaryOutcomeText winner={winner} />
-					<div className={style.buttons}>
-						<Button className={style.button} color="silver">
-							Quit
-						</Button>
-						<Button className={style.button} color="yellow">
-							Next round
-						</Button>
-					</div>
+		<Modal>
+			<div className={modalClasses}>
+				{!isTie && (
+					<SecondaryOutcomeText
+						winner={winner}
+						player1={player1}
+						isCPU={isCPU}
+					/>
+				)}
+				<PrimaryOutcomeText winner={winner} />
+				<div className={style.buttons}>
+					<Button className={style.button} color="silver">
+						Quit
+					</Button>
+					<Button className={style.button} color="yellow">
+						Next round
+					</Button>
 				</div>
 			</div>
-		</>
+		</Modal>
 	);
 };
 

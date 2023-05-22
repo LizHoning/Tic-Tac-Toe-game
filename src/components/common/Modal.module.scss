@@ -1,0 +1,19 @@
+@use "src/assets/css/colors";
+
+.background {
+	height: 100vh;
+	width: 100vw;
+	background-color: #000000;
+	opacity: 0.5;
+	position: absolute;
+}
+
+.modal {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 266px;
+	background-color: colors.$semi-dark-navy;
+}
