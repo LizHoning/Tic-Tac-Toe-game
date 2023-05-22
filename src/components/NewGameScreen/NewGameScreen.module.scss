@@ -22,15 +22,11 @@
 		justify-content: space-between;
 
 		.button {
-			font-family: Outfit;
-			font-style: normal;
-			font-weight: 700;
 			font-size: 20px;
 			line-height: 25px;
-			text-align: center;
 			letter-spacing: 1.25px;
-			text-transform: uppercase;
 			height: 67px;
+			padding-bottom: 8px;
 			box-shadow: inset 0px -8px 0px 0px rgba(0, 0, 0, 0.25);
 		}
 	}

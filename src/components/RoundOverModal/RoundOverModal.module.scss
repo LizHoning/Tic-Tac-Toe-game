@@ -24,67 +24,23 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	height: 176px;
-}
+	height: 133px;
 
-.buttons {
-	display: flex;
-	width: 238px;
-	justify-content: space-between;
-}
+	.buttons {
+		display: flex;
+		width: 238px;
+		justify-content: space-between;
 
-.quitButton {
-	width: 76px;
-	height: 52px;
-	background-color: colors.$silver;
-	border-radius: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.25) inset;
-}
-
-.nextRoundButton {
-	height: 52px;
-	width: 52px;
-	background-color: colors.$silver;
-	border-radius: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.25) inset;
-}
-
-.primaryOutcomeText {
-	display: flex;
-	align-items: center;
-
-	.icon {
-		color: colors.$light-blue;
-		height: 64px;
-		width: 64px;
+		.button {
+			height: 52px;
+			padding-bottom: 4px;
+			font-size: 16px;
+			letter-spacing: 1px;
+			box-shadow: 0px -4px 0px 0px rgba(0, 0, 0, 0.25) inset;
+		}
 	}
 
-	.text {
-		font-family: Outfit;
-		font-style: normal;
-		font-weight: 700;
-		font-size: 40px;
-		line-height: 50px;
-		letter-spacing: 2.5px;
-		text-transform: uppercase;
-		color: colors.$light-blue;
-		padding-left: 20px;
+	&.hasSecondaryText {
+		height: 176px;
 	}
-}
-
-.secondaryOutcomeText {
-	font-family: Outfit;
-	font-style: normal;
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 20px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	color: colors.$silver;
 }

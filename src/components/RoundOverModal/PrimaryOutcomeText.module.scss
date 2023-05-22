@@ -1,0 +1,39 @@
+@use "src/assets/css/colors";
+@use "src/assets/css/fonts";
+
+.primaryOutcomeText {
+	display: flex;
+	align-items: center;
+
+	.icon {
+		height: 64px;
+		width: 64px;
+	}
+
+	.text {
+		font-family: Outfit;
+		font-style: normal;
+		font-weight: 700;
+		font-size: 40px;
+		line-height: 50px;
+		letter-spacing: 2.5px;
+		text-transform: uppercase;
+		padding-left: 20px;
+	}
+
+	&.xWon {
+		color: colors.$light-blue;
+	}
+
+	&.oWon {
+		color: colors.$light-yellow;
+	}
+
+	&.tie {
+		color: colors.$silver;
+
+		.text {
+			padding-left: 0px;
+		}
+	}
+}
