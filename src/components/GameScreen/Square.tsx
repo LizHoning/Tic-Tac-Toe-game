@@ -1,13 +1,20 @@
-import style from "./Square.module.scss";
-import { ReactComponent as IconX } from "../../assets/images/icon-x.svg";
-import { ReactComponent as IconO } from "../../assets/images/icon-o.svg";
+import EmptySquare from "./EmptySquare";
+import MarkedSquare from "./MarkedSquare";
 
-const Square = () => {
-	return (
-		<div className={style.square}>
-			<IconX className={style.icon} />
-		</div>
-	);
+import { PlayerTypes, MarkTypes } from "../common/utils";
+
+interface SquareProps {
+	currentPlayerMark: PlayerTypes;
+	mark: MarkTypes;
+	isWinningMark: boolean;
+}
+
+const Square = ({ currentPlayerMark, mark, isWinningMark }: SquareProps) => {
+	if (mark) {
+		return <MarkedSquare mark={mark} isWinningMark={isWinningMark} />;
+	}
+
+	return <EmptySquare mark={currentPlayerMark} />;
 };
 
 export default Square;

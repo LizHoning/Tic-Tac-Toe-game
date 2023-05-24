@@ -2,12 +2,13 @@ import style from "./PrimaryOutcomeText.module.scss";
 import classNames from "classnames";
 import { ReactComponent as IconX } from "../../assets/images/icon-x.svg";
 import { ReactComponent as IconO } from "../../assets/images/icon-o.svg";
+import { O, X, TIE, OutcomeTypes } from "../../components/common/utils";
 
-import { O, X, TIE, WinnerInterface } from "../../components/common/utils";
+interface PrimaryOutcomeProps {
+	winner: OutcomeTypes;
+}
 
-interface PrimaryOutcomeProps extends WinnerInterface {}
-
-const getIcon = (winner: "O" | "X" | "tie") => {
+const getIcon = (winner: OutcomeTypes) => {
 	if (winner === O) {
 		return IconO;
 	}

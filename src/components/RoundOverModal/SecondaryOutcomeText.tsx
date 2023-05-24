@@ -1,8 +1,9 @@
 import style from "./SecondaryOutcomeText.module.scss";
-import { TIE, WinnerInterface } from "../../components/common/utils";
+import { TIE, PlayerTypes, OutcomeTypes } from "../../components/common/utils";
 
-interface SecondaryOutcomeProps extends WinnerInterface {
-	player1: "O" | "X";
+interface SecondaryOutcomeProps {
+	winner: OutcomeTypes;
+	player1: PlayerTypes;
 	isCPU: boolean;
 }
 

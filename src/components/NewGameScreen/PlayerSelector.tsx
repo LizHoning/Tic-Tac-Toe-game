@@ -4,8 +4,7 @@ import classNames from "classnames";
 import { ReactComponent as IconO } from "../../assets/images/icon-o.svg";
 import { ReactComponent as IconX } from "../../assets/images/icon-x.svg";
 
-const O = "O";
-const X = "X";
+import { X, O } from "../common/utils";
 
 const PlayerSelector = () => {
 	const [selectedPlayer, updateSelectedPlayer] = useState(O);
