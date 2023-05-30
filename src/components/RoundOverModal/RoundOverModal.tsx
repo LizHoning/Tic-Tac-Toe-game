@@ -1,22 +1,23 @@
-import style from "./RoundOverModal.module.scss";
 import classNames from "classnames";
+import { useSelector } from "react-redux";
+
+import style from "./RoundOverModal.module.scss";
 import Modal from "../common/Modal";
 import Button from "../common/Button";
 import SecondaryOutcomeText from "./SecondaryOutcomeText";
 import PrimaryOutcomeText from "./PrimaryOutcomeText";
-
-import { O, X, TIE } from "../../components/common/utils";
+import type { RootState } from "../../store/store";
+import { O, X, player1 as p1, tie } from "../../components/common/utils";
 
 const RoundOverModal = () => {
-	// Temporary values for testing states
-	const winner = O;
-	const player1 = O;
-	const isCPU = false;
+	const gameStatus = useSelector((state: RootState) => state.game.gameStatus);
 
-	// Temporarily ignoring error detected when using hard-coded
-	// testing values
-	// @ts-expect-error
-	const isTie = winner === TIE;
+	if (!gameStatus.winner) return null;
+
+	const winner = gameStatus.winner;
+	const player1 = gameStatus.X.player === p1 ? X : O;
+	const isCPU = gameStatus.useCPU;
+	const isTie = winner === tie;
 
 	const modalClasses = classNames(style.modalContents, {
 		[style.hasSecondaryText]: !isTie,

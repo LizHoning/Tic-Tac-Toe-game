@@ -3,10 +3,10 @@ import classNames from "classnames";
 import { ReactComponent as IconX } from "../../assets/images/icon-x.svg";
 import { ReactComponent as IconO } from "../../assets/images/icon-o.svg";
 
-import { X, O, MarkTypes } from "../common/utils";
+import { X, O, Mark } from "../common/utils";
 
 interface MarkedSquareProps {
-	mark: MarkTypes;
+	mark: Mark;
 	isWinningMark: boolean;
 }
 
@@ -19,7 +19,7 @@ const iconMap = {
 const MarkedSquare = ({ mark, isWinningMark }: MarkedSquareProps) => {
 	const Icon = iconMap[mark || ""];
 
-	const classes = classNames(style.square, {
+	const classes = classNames(style.markedSquare, {
 		[style.xMark]: mark === X,
 		[style.oMark]: mark === O,
 		[style.xWon]: mark === X && isWinningMark,

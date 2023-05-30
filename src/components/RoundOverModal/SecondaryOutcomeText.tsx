@@ -1,14 +1,14 @@
 import style from "./SecondaryOutcomeText.module.scss";
-import { TIE, PlayerTypes, OutcomeTypes } from "../../components/common/utils";
+import { tie, PlayerMark, Outcome } from "../../components/common/utils";
 
 interface SecondaryOutcomeProps {
-	winner: OutcomeTypes;
-	player1: PlayerTypes;
+	winner: Outcome;
+	player1: PlayerMark;
 	isCPU: boolean;
 }
 
 const getText = ({ winner, player1, isCPU }: SecondaryOutcomeProps) => {
-	if (winner === TIE) {
+	if (winner === tie) {
 		return null;
 	}
 
