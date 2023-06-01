@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
 import { useDispatch } from "react-redux";
 
-import { markSquare } from "../../store/gameSlice";
+import { squareMarked } from "../../store/gameSlice";
 import style from "./Square.module.scss";
 import IconOutline from "./IconOutline";
 
@@ -16,7 +16,7 @@ const UnmarkedSquare = ({ id }: UnmarkedSquareProps) => {
 	const dispatch = useDispatch();
 
 	const handleClick = () => {
-		dispatch(markSquare({ id }));
+		dispatch(squareMarked({ id }));
 	};
 
 	return (
