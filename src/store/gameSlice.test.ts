@@ -68,6 +68,7 @@ describe("restartGameClicked", () => {
 		previousState.squares["10"].mark = "O";
 		previousState.squares["21"].mark = "O";
 		previousState.squares["21"].isWinningMark = true;
+		previousState.gameStatus.currentPlayer = "O";
 
 		const expected = generateInitialState();
 

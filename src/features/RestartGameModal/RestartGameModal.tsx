@@ -5,8 +5,8 @@ import {
 	restartGameModalToggled,
 	restartGameClicked,
 } from "../../store/gameSlice";
-import Modal from "../common/Modal";
-import Button from "../common/Button";
+import Modal from "../Modal/Modal";
+import Button from "../Button/Button";
 import style from "./RestartGameModal.module.scss";
 
 const RestartGameModal = () => {

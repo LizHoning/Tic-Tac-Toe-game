@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import style from "./StatsBar.module.scss";
 import type { RootState } from "../../store/store";
-import { player1, playerYou, playerCPU } from "../common/utils";
+import { player1, playerYou, playerCPU } from "../../utils/values";
 
 type PlayerTitle = "p1" | "p2" | "you" | "cpu";
 

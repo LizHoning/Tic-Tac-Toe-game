@@ -2,10 +2,10 @@ import { useSelector } from "react-redux";
 
 import "./assets/css/App.scss";
 import type { RootState } from "./store/store";
-import NewGameScreen from "./components/NewGameScreen/NewGameScreen";
-import GameScreen from "./components/GameScreen/GameScreen";
-import RoundOverModal from "./components/RoundOverModal/RoundOverModal";
-import RestartGameModal from "./components/RestartGameModal/RestartGameModal";
+import NewGameScreen from "./features/NewGameScreen/NewGameScreen";
+import GameScreen from "./features/GameScreen/GameScreen";
+import RoundOverModal from "./features/RoundOverModal/RoundOverModal";
+import RestartGameModal from "./features/RestartGameModal/RestartGameModal";
 
 function App() {
 	const gameStarted = useSelector(

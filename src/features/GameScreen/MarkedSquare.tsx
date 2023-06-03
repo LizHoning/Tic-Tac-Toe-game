@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { ReactComponent as IconX } from "../../assets/images/icon-x.svg";
 import { ReactComponent as IconO } from "../../assets/images/icon-o.svg";
 
-import { X, O, Mark } from "../common/utils";
+import { X, O, Mark } from "../../utils/values";
 
 interface MarkedSquareProps {
 	mark: Mark;

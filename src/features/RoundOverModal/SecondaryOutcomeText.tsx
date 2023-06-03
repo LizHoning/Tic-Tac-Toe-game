@@ -1,5 +1,5 @@
 import style from "./SecondaryOutcomeText.module.scss";
-import { tie, PlayerMark, Outcome } from "../../components/common/utils";
+import { tie, PlayerMark, Outcome } from "../../utils/values";
 
 interface SecondaryOutcomeProps {
 	winner: Outcome;

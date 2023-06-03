@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 import style from "./NewGameScreen.module.scss";
 import { startGameClicked } from "../../store/gameSlice";
 import logo from "../../assets/images/logo.svg";
-import Button from "../common/Button";
+import Button from "../Button/Button";
 import MarkSelector from "./MarkSelector";
-import { X, player2, playerCPU, PlayerMark, Player2 } from "../common/utils";
+import { X, player2, playerCPU, PlayerMark, Player2 } from "../../utils/values";
 
 const NewGameScreen = () => {
 	const [selectedMark, updateSelectedMark] = useState<PlayerMark>(X);

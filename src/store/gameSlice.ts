@@ -11,7 +11,7 @@ import {
 	Winner,
 	Player,
 	PlayerMark,
-} from "../components/common/utils";
+} from "../utils/values";
 
 interface Square {
 	mark: Mark;
@@ -138,6 +138,7 @@ export const gameSlice = createSlice({
 		},
 		restartGameClicked: (state) => {
 			updaters.clearGameBoard(state);
+			state.gameStatus.currentPlayer = X;
 			state.showRestartGameModal = false;
 		},
 	},

@@ -5,7 +5,7 @@ import type { RootState } from "../../store/store";
 import { restartGameModalToggled } from "../../store/gameSlice";
 import iconRestart from "../../assets/images/icon-restart.svg";
 import logo from "../../assets/images/logo.svg";
-import Button from "../common/Button";
+import Button from "../Button/Button";
 import { ReactComponent as IconX } from "../../assets/images/icon-x.svg";
 import { ReactComponent as IconO } from "../../assets/images/icon-o.svg";
 

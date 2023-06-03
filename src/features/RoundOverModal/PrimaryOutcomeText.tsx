@@ -2,7 +2,7 @@ import style from "./PrimaryOutcomeText.module.scss";
 import classNames from "classnames";
 import { ReactComponent as IconX } from "../../assets/images/icon-x.svg";
 import { ReactComponent as IconO } from "../../assets/images/icon-o.svg";
-import { O, X, tie, Outcome } from "../../components/common/utils";
+import { O, X, tie, Outcome } from "../../utils/values";
 
 interface PrimaryOutcomeProps {
 	winner: Outcome;
@@ -10,10 +10,10 @@ interface PrimaryOutcomeProps {
 
 const getIcon = (winner: Outcome) => {
 	if (winner === O) {
-		return IconO;
+		return <IconO className={style.icon} title="Icon O" />;
 	}
 	if (winner === X) {
-		return IconX;
+		return <IconX className={style.icon} title="Icon X" />;
 	}
 	return null;
 };
@@ -31,7 +31,7 @@ const PrimaryOutcomeText = ({ winner }: PrimaryOutcomeProps) => {
 		<div className={classes}>
 			{Icon && (
 				<>
-					<Icon className={style.icon} />
+					{Icon}
 					<div className={style.text}>takes the round</div>
 				</>
 			)}

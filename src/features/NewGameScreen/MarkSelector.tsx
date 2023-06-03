@@ -3,7 +3,7 @@ import classNames from "classnames";
 import style from "./MarkSelector.module.scss";
 import { ReactComponent as IconO } from "../../assets/images/icon-o.svg";
 import { ReactComponent as IconX } from "../../assets/images/icon-x.svg";
-import { X, O, PlayerMark } from "../common/utils";
+import { X, O, PlayerMark } from "../../utils/values";
 
 interface MarkSelectorProps {
 	selectedMark: PlayerMark;
