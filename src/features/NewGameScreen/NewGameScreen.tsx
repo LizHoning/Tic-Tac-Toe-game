@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 
 import style from "./NewGameScreen.module.scss";
+import { useAppDispatch } from "../../store/hooks";
 import { startGameClicked } from "../../store/gameSlice";
 import logo from "../../assets/images/logo.svg";
 import Button from "../Button/Button";
@@ -10,7 +10,7 @@ import { X, player2, playerCPU, PlayerMark, Player2 } from "../../utils/values";
 
 const NewGameScreen = () => {
 	const [selectedMark, updateSelectedMark] = useState<PlayerMark>(X);
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	const handleButtonClick = (opponent: Player2) => {
 		dispatch(startGameClicked({ player1Mark: selectedMark, opponent }));

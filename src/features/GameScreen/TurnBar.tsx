@@ -1,7 +1,5 @@
-import { useSelector, useDispatch } from "react-redux";
-
 import style from "./TurnBar.module.scss";
-import type { RootState } from "../../store/store";
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { restartGameModalToggled } from "../../store/gameSlice";
 import iconRestart from "../../assets/images/icon-restart.svg";
 import logo from "../../assets/images/logo.svg";
@@ -16,10 +14,10 @@ const iconMap = {
 };
 
 const TurnBar = () => {
-	const currentPlayerMark = useSelector(
-		(state: RootState) => state.game.gameStatus.currentPlayer
+	const currentPlayerMark = useAppSelector(
+		(state) => state.game.gameStatus.currentPlayer
 	);
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	const TurnIcon = iconMap[currentPlayerMark || ""];
 

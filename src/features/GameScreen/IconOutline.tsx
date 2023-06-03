@@ -1,9 +1,7 @@
-import { useSelector } from "react-redux";
-
-import type { RootState } from "../../store/store";
+import style from "./Square.module.scss";
+import { useAppSelector } from "../../store/hooks";
 import { ReactComponent as IconXOutline } from "../../assets/images/icon-x-outline.svg";
 import { ReactComponent as IconOOutline } from "../../assets/images/icon-o-outline.svg";
-import style from "./Square.module.scss";
 
 const iconMap = {
 	X: IconXOutline,
@@ -12,8 +10,8 @@ const iconMap = {
 };
 
 const IconOutline = () => {
-	const currentPlayerMark = useSelector(
-		(state: RootState) => state.game.gameStatus.currentPlayer
+	const currentPlayerMark = useAppSelector(
+		(state) => state.game.gameStatus.currentPlayer
 	);
 
 	const Icon = iconMap[currentPlayerMark || ""];

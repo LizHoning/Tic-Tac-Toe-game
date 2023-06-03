@@ -1,6 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
-
-import type { RootState } from "../../store/store";
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import {
 	restartGameModalToggled,
 	restartGameClicked,
@@ -10,10 +8,10 @@ import Button from "../Button/Button";
 import style from "./RestartGameModal.module.scss";
 
 const RestartGameModal = () => {
-	const showRestartGameModal = useSelector(
-		(state: RootState) => state.game.showRestartGameModal
+	const showRestartGameModal = useAppSelector(
+		(state) => state.game.showRestartGameModal
 	);
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	if (!showRestartGameModal) return null;
 

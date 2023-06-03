@@ -1,11 +1,9 @@
-import { useSelector } from "react-redux";
-
 import style from "./GameBoard.module.scss";
-import type { RootState } from "../../store/store";
+import { useAppSelector } from "../../store/hooks";
 import Square from "./Square";
 
 const GameBoard = () => {
-	const gameBoard = useSelector((state: RootState) => state.game.gameBoard);
+	const gameBoard = useAppSelector((state) => state.game.gameBoard);
 
 	return (
 		<div className={style.gameBoard}>

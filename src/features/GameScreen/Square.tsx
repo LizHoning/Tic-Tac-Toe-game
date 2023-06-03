@@ -1,6 +1,4 @@
-import { useSelector } from "react-redux";
-
-import type { RootState } from "../../store/store";
+import { useAppSelector } from "../../store/hooks";
 import UnmarkedSquare from "./UnmarkedSquare";
 import MarkedSquare from "./MarkedSquare";
 
@@ -9,9 +7,7 @@ interface SquareProps {
 }
 
 const Square = ({ id }: SquareProps) => {
-	const squareData = useSelector(
-		(state: RootState) => state.game.squares[id]
-	);
+	const squareData = useAppSelector((state) => state.game.squares[id]);
 
 	if (squareData.mark) {
 		return <MarkedSquare {...squareData} />;

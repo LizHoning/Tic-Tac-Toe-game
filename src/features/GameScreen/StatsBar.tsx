@@ -1,13 +1,11 @@
-import { useSelector } from "react-redux";
-
 import style from "./StatsBar.module.scss";
-import type { RootState } from "../../store/store";
+import { useAppSelector } from "../../store/hooks";
 import { player1, playerYou, playerCPU } from "../../utils/values";
 
 type PlayerTitle = "p1" | "p2" | "you" | "cpu";
 
 const StatsBar = () => {
-	const gameStatus = useSelector((state: RootState) => state.game.gameStatus);
+	const gameStatus = useAppSelector((state) => state.game.gameStatus);
 
 	let xPlayerTitle: PlayerTitle = gameStatus.X.player;
 	let oPlayerTitle: PlayerTitle = gameStatus.O.player;

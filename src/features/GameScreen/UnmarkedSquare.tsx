@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
 import { CSSTransition } from "react-transition-group";
-import { useDispatch } from "react-redux";
 
-import { squareMarked } from "../../store/gameSlice";
 import style from "./Square.module.scss";
+import { useAppDispatch } from "../../store/hooks";
+import { squareMarked } from "../../store/gameSlice";
 import IconOutline from "./IconOutline";
 
 interface UnmarkedSquareProps {
@@ -13,7 +13,7 @@ interface UnmarkedSquareProps {
 const UnmarkedSquare = ({ id }: UnmarkedSquareProps) => {
 	const [showIcon, updateShowIcon] = useState(false);
 	const nodeRef = useRef(null);
-	const dispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	const handleClick = () => {
 		dispatch(squareMarked({ id }));
