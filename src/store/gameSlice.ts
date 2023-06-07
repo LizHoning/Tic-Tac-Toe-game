@@ -141,6 +141,13 @@ export const gameSlice = createSlice({
 			state.gameStatus.currentPlayer = X;
 			state.showRestartGameModal = false;
 		},
+		quitGameClicked: (state) => {
+			const cleanState = generateInitialState();
+			state.gameBoard = cleanState.gameBoard;
+			state.gameStatus = cleanState.gameStatus;
+			state.squares = cleanState.squares;
+			state.gameStarted = false;
+		},
 	},
 });
 
@@ -149,6 +156,7 @@ export const {
 	startGameClicked,
 	restartGameModalToggled,
 	restartGameClicked,
+	quitGameClicked,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

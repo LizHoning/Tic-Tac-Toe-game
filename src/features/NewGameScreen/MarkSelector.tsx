@@ -18,22 +18,29 @@ const MarkSelector = ({ selectedMark, onPlayerClick }: MarkSelectorProps) => {
 		[style.unselected]: selectedMark === X,
 	});
 
+	const xTitle = selectedMark === X ? "X is selected" : "Select X";
+	const oTitle = selectedMark === O ? "O is selected" : "Select O";
+
 	return (
 		<div className={style.markSelector}>
 			<div className={style.instructionText}>Pick player 1's mark</div>
 			<div className={style.selectorButtons}>
-				<div
+				<button
+					type="button"
 					className={selectorXClasses}
 					onClick={() => onPlayerClick(X)}
+					title={xTitle}
 				>
 					<IconX className={style.icon} />
-				</div>
-				<div
+				</button>
+				<button
+					type="button"
 					className={selectorOClasses}
 					onClick={() => onPlayerClick(O)}
+					title={oTitle}
 				>
 					<IconO className={style.icon} />
-				</div>
+				</button>
 			</div>
 			<div className={style.reminderText}>Remember : X goes first</div>
 		</div>
