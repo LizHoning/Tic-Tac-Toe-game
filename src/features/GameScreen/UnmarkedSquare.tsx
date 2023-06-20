@@ -21,6 +21,7 @@ const UnmarkedSquare = ({ id }: UnmarkedSquareProps) => {
 
 	return (
 		<div
+			title="Unmarked square"
 			className={style.unmarkedSquare}
 			onClick={handleClick}
 			onMouseEnter={() => {

@@ -1,8 +1,9 @@
-import { createSlice, Draft } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 import {
 	X,
 	O,
+	tie,
 	player1,
 	player2,
 	playerCPU,
@@ -11,6 +12,8 @@ import {
 	Winner,
 	Player,
 	PlayerMark,
+	squareKeys,
+	winningCombinations,
 } from "../utils/values";
 
 interface Square {
@@ -42,7 +45,6 @@ export interface GameState {
 	gameStatus: GameStatus;
 	gameStarted: boolean;
 	showRestartGameModal: boolean;
-	gameBoard: string[][];
 	squares: Squares;
 }
 
@@ -52,23 +54,10 @@ const togglePlayerMap: { [key: string]: PlayerMark } = {
 };
 
 export const generateInitialState = (): GameState => {
-	const gameBoard: string[][] = [
-		["00", "01", "02"],
-		["10", "11", "12"],
-		["20", "21", "22"],
-	];
-
-	const squares: Squares = {
-		"00": { ...square },
-		"01": { ...square },
-		"02": { ...square },
-		"10": { ...square },
-		"11": { ...square },
-		"12": { ...square },
-		"20": { ...square },
-		"21": { ...square },
-		"22": { ...square },
-	};
+	const squares: Squares = {};
+	Object.values(squareKeys).forEach((val) => {
+		squares[val] = { ...square };
+	});
 
 	const gameStatus: GameStatus = {
 		X: {
@@ -89,25 +78,8 @@ export const generateInitialState = (): GameState => {
 		gameStatus,
 		gameStarted: false,
 		showRestartGameModal: false,
-		gameBoard,
 		squares,
 	};
-};
-
-export const updaters = {
-	clearGameBoard: (state: Draft<GameState>) => {
-		state.gameBoard.forEach((row: string[]) => {
-			row.forEach((squareID) => {
-				const square = state.squares[squareID];
-				square.mark = empty;
-				square.isWinningMark = false;
-			});
-		});
-	},
-	resetGameStatus: (state: Draft<GameState>) => {
-		const cleanState = generateInitialState();
-		state.gameStatus = cleanState.gameStatus;
-	},
 };
 
 export const gameSlice = createSlice({
@@ -119,9 +91,38 @@ export const gameSlice = createSlice({
 			const id: string = action.payload.id;
 			state.squares[id].mark = currentPlayer;
 
-			// TODO: Check for win
-			// If no win, change current player
-			state.gameStatus.currentPlayer = togglePlayerMap[currentPlayer];
+			let gameWon = false;
+			winningCombinations.forEach((combo) => {
+				const isWinningLine = combo.every(
+					(key) => currentPlayer === state.squares[key].mark
+				);
+
+				if (isWinningLine) {
+					gameWon = true;
+					combo.forEach((key) => {
+						const square = state.squares[key];
+						square.isWinningMark = true;
+					});
+				}
+			});
+
+			const allSquaresFilled = Object.values(state.squares)
+				.map((square) => Boolean(square.mark))
+				.every((hasMark) => hasMark);
+
+			if (allSquaresFilled && !gameWon) {
+				// If board is full and neither player has a winning line,
+				// the game has ended in a tie
+				state.gameStatus.ties++;
+				state.gameStatus.winner = tie;
+			} else if (gameWon) {
+				// The current player has won the game
+				state.gameStatus[currentPlayer].wins++;
+				state.gameStatus.winner = currentPlayer;
+			} else {
+				// The game continues & the other player is now the current player
+				state.gameStatus.currentPlayer = togglePlayerMap[currentPlayer];
+			}
 		},
 		startGameClicked: (state, action) => {
 			const player1Mark: PlayerMark = action.payload.player1Mark;
@@ -137,16 +138,22 @@ export const gameSlice = createSlice({
 			state.showRestartGameModal = action.payload.show;
 		},
 		restartGameClicked: (state) => {
-			updaters.clearGameBoard(state);
+			const cleanState = generateInitialState();
+			state.squares = cleanState.squares;
 			state.gameStatus.currentPlayer = X;
 			state.showRestartGameModal = false;
 		},
 		quitGameClicked: (state) => {
 			const cleanState = generateInitialState();
-			state.gameBoard = cleanState.gameBoard;
 			state.gameStatus = cleanState.gameStatus;
 			state.squares = cleanState.squares;
 			state.gameStarted = false;
+		},
+		nextRoundClicked: (state) => {
+			const cleanState = generateInitialState();
+			state.squares = cleanState.squares;
+			state.gameStatus.winner = null;
+			state.gameStatus.currentPlayer = X;
 		},
 	},
 });
@@ -157,6 +164,7 @@ export const {
 	restartGameModalToggled,
 	restartGameClicked,
 	quitGameClicked,
+	nextRoundClicked,
 } = gameSlice.actions;
 
 export default gameSlice.reducer;

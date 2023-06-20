@@ -8,12 +8,17 @@ interface SquareProps {
 
 const Square = ({ id }: SquareProps) => {
 	const squareData = useAppSelector((state) => state.game.squares[id]);
+	const title = `${id} square`;
 
-	if (squareData.mark) {
-		return <MarkedSquare {...squareData} />;
-	}
-
-	return <UnmarkedSquare id={id} />;
+	return (
+		<div title={title}>
+			{squareData.mark ? (
+				<MarkedSquare {...squareData} />
+			) : (
+				<UnmarkedSquare id={id} />
+			)}
+		</div>
+	);
 };
 
 export default Square;

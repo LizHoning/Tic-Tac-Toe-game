@@ -20,19 +20,25 @@ const StatsBar = () => {
 			<div className={style.xBlock}>
 				<div className={style.blockContent}>
 					<div className={style.title}>{`X (${xPlayerTitle})`}</div>
-					<div className={style.count}>{gameStatus.X.wins}</div>
+					<div className={style.count} title="Player X win count">
+						{gameStatus.X.wins}
+					</div>
 				</div>
 			</div>
 			<div className={style.tiesBlock}>
 				<div className={style.blockContent}>
 					<div className={style.title}>Ties</div>
-					<div className={style.count}>{gameStatus.ties}</div>
+					<div className={style.count} title="Tie count">
+						{gameStatus.ties}
+					</div>
 				</div>
 			</div>
 			<div className={style.yBlock}>
 				<div className={style.blockContent}>
 					<div className={style.title}>{`O (${oPlayerTitle})`}</div>
-					<div className={style.count}>{gameStatus.O.wins}</div>
+					<div className={style.count} title="Player O win count">
+						{gameStatus.O.wins}
+					</div>
 				</div>
 			</div>
 		</div>

@@ -27,7 +27,9 @@ const MarkedSquare = ({ mark, isWinningMark }: MarkedSquareProps) => {
 	});
 
 	return (
-		<div className={classes}>{Icon && <Icon className={style.icon} />}</div>
+		<div className={classes}>
+			{Icon && <Icon title={`${mark} icon`} className={style.icon} />}
+		</div>
 	);
 };
 

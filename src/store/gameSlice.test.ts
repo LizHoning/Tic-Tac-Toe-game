@@ -38,12 +38,12 @@ describe("squareMarked", () => {
 		const previousState = generateInitialState();
 
 		const expected = generateInitialState();
-		expected.squares["00"].mark = "X";
+		expected.squares["top-left"].mark = "X";
 		expected.gameStatus.currentPlayer = "O";
 
-		expect(reducer(previousState, squareMarked({ id: "00" }))).toEqual(
-			expected
-		);
+		expect(
+			reducer(previousState, squareMarked({ id: "top-left" }))
+		).toEqual(expected);
 	});
 
 	test("should mark square O & change currentPlayer to X", () => {
@@ -51,12 +51,12 @@ describe("squareMarked", () => {
 		previousState.gameStatus.currentPlayer = "O";
 
 		const expected = generateInitialState();
-		expected.squares["00"].mark = "O";
+		expected.squares["top-left"].mark = "O";
 		expected.gameStatus.currentPlayer = "X";
 
-		expect(reducer(previousState, squareMarked({ id: "00" }))).toEqual(
-			expected
-		);
+		expect(
+			reducer(previousState, squareMarked({ id: "top-left" }))
+		).toEqual(expected);
 	});
 });
 
@@ -64,10 +64,10 @@ describe("restartGameClicked", () => {
 	test("should clear board and hide modal", () => {
 		const previousState = generateInitialState();
 		previousState.showRestartGameModal = true;
-		previousState.squares["01"].mark = "X";
-		previousState.squares["10"].mark = "O";
-		previousState.squares["21"].mark = "O";
-		previousState.squares["21"].isWinningMark = true;
+		previousState.squares["top-middle"].mark = "X";
+		previousState.squares["middle-left"].mark = "O";
+		previousState.squares["bottom-middle"].mark = "O";
+		previousState.squares["bottom-middle"].isWinningMark = true;
 		previousState.gameStatus.currentPlayer = "O";
 
 		const expected = generateInitialState();

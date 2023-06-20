@@ -25,7 +25,10 @@ const TurnBar = () => {
 		<div className={style.turnBar}>
 			<img src={logo} alt="XO logo" />
 			<div className={style.turnDisplay}>
-				<div className={style.turnDisplayContents}>
+				<div
+					title="Current player"
+					className={style.turnDisplayContents}
+				>
 					<TurnIcon className={style.turnIcon} />
 					<div className={style.turnText}>Turn</div>
 				</div>

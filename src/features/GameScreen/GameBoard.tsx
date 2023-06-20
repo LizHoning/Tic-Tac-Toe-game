@@ -1,17 +1,15 @@
 import style from "./GameBoard.module.scss";
-import { useAppSelector } from "../../store/hooks";
 import Square from "./Square";
+import { gameBoard } from "../../utils/values";
 
 const GameBoard = () => {
-	const gameBoard = useAppSelector((state) => state.game.gameBoard);
-
 	return (
 		<div className={style.gameBoard}>
 			{gameBoard.map((row, index) => {
 				return (
 					<div key={index} className={style.row}>
-						{row.map((id) => {
-							return <Square key={id} id={id} />;
+						{row.map((key) => {
+							return <Square key={key} id={key} />;
 						})}
 					</div>
 				);

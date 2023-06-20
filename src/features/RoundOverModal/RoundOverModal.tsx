@@ -2,7 +2,7 @@ import classNames from "classnames";
 
 import style from "./RoundOverModal.module.scss";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import { quitGameClicked } from "../../store/gameSlice";
+import { nextRoundClicked, quitGameClicked } from "../../store/gameSlice";
 import Modal from "../Modal/Modal";
 import Button from "../Button/Button";
 import SecondaryOutcomeText from "./SecondaryOutcomeText";
@@ -43,7 +43,11 @@ const RoundOverModal = () => {
 					>
 						Quit
 					</Button>
-					<Button className={style.button} color="yellow">
+					<Button
+						onClick={() => dispatch(nextRoundClicked())}
+						className={style.button}
+						color="yellow"
+					>
 						Next round
 					</Button>
 				</div>
