@@ -4,13 +4,9 @@ import {
 	X,
 	O,
 	tie,
-	player1,
-	player2,
-	playerCPU,
 	empty,
 	Mark,
 	Winner,
-	Player,
 	PlayerMark,
 	squareKeys,
 	winningCombinations,
@@ -27,18 +23,16 @@ type Squares = {
 	[key: string]: Square;
 };
 
-interface PlayerStatus {
-	player: Player;
-	wins: number;
-}
-
 interface GameStatus {
-	X: PlayerStatus;
-	O: PlayerStatus;
-	winner: Winner;
-	ties: number;
+	wins: {
+		X: number;
+		O: number;
+		ties: number;
+	};
+	roundWinner: Winner;
 	useCPU: boolean;
-	currentPlayer: "X" | "O";
+	player1Mark: PlayerMark;
+	currentPlayerMark: PlayerMark;
 }
 
 export interface GameState {
@@ -60,18 +54,15 @@ export const generateInitialState = (): GameState => {
 	});
 
 	const gameStatus: GameStatus = {
-		X: {
-			player: player1,
-			wins: 0,
+		wins: {
+			X: 0,
+			O: 0,
+			ties: 0,
 		},
-		O: {
-			player: player2,
-			wins: 0,
-		},
-		winner: null,
-		ties: 0,
+		roundWinner: null,
 		useCPU: false,
-		currentPlayer: X,
+		player1Mark: X,
+		currentPlayerMark: X,
 	};
 
 	return {
@@ -87,7 +78,7 @@ export const gameSlice = createSlice({
 	initialState: generateInitialState(),
 	reducers: {
 		squareMarked: (state, action) => {
-			const currentPlayer = state.gameStatus.currentPlayer;
+			const currentPlayer = state.gameStatus.currentPlayerMark;
 			const id: string = action.payload.id;
 			state.squares[id].mark = currentPlayer;
 
@@ -113,25 +104,22 @@ export const gameSlice = createSlice({
 			if (allSquaresFilled && !gameWon) {
 				// If board is full and neither player has a winning line,
 				// the game has ended in a tie
-				state.gameStatus.ties++;
-				state.gameStatus.winner = tie;
+				state.gameStatus.wins.ties++;
+				state.gameStatus.roundWinner = tie;
 			} else if (gameWon) {
 				// The current player has won the game
-				state.gameStatus[currentPlayer].wins++;
-				state.gameStatus.winner = currentPlayer;
+				state.gameStatus.wins[currentPlayer]++;
+				state.gameStatus.roundWinner = currentPlayer;
 			} else {
 				// The game continues & the other player is now the current player
-				state.gameStatus.currentPlayer = togglePlayerMap[currentPlayer];
+				state.gameStatus.currentPlayerMark =
+					togglePlayerMap[currentPlayer];
 			}
 		},
 		startGameClicked: (state, action) => {
 			const player1Mark: PlayerMark = action.payload.player1Mark;
-			const opponent = action.payload.opponent;
-			const opponentMark = togglePlayerMap[player1Mark];
-
-			state.gameStatus[player1Mark].player = player1;
-			state.gameStatus[opponentMark].player = player2;
-			state.gameStatus.useCPU = opponent === playerCPU;
+			state.gameStatus.player1Mark = player1Mark;
+			state.gameStatus.useCPU = action.payload.useCPU;
 			state.gameStarted = true;
 		},
 		restartGameModalToggled: (state, action) => {
@@ -140,7 +128,7 @@ export const gameSlice = createSlice({
 		restartGameClicked: (state) => {
 			const cleanState = generateInitialState();
 			state.squares = cleanState.squares;
-			state.gameStatus.currentPlayer = X;
+			state.gameStatus.currentPlayerMark = X;
 			state.showRestartGameModal = false;
 		},
 		quitGameClicked: (state) => {
@@ -152,8 +140,8 @@ export const gameSlice = createSlice({
 		nextRoundClicked: (state) => {
 			const cleanState = generateInitialState();
 			state.squares = cleanState.squares;
-			state.gameStatus.winner = null;
-			state.gameStatus.currentPlayer = X;
+			state.gameStatus.roundWinner = null;
+			state.gameStatus.currentPlayerMark = X;
 		},
 	},
 });

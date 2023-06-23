@@ -11,7 +11,7 @@ const iconMap = {
 
 const IconOutline = () => {
 	const currentPlayerMark = useAppSelector(
-		(state) => state.game.gameStatus.currentPlayer
+		(state) => state.game.gameStatus.currentPlayerMark
 	);
 
 	const Icon = iconMap[currentPlayerMark || ""];

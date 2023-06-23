@@ -1,19 +1,30 @@
 import style from "./StatsBar.module.scss";
 import { useAppSelector } from "../../store/hooks";
-import { player1, playerYou, playerCPU } from "../../utils/values";
+import { X, O, PlayerMark } from "../../utils/values";
 
 type PlayerTitle = "p1" | "p2" | "you" | "cpu";
 
+const getPlayerTitle = (
+	mark: PlayerMark,
+	player1Mark: PlayerMark,
+	useCPU: boolean
+) => {
+	const isPlayer1 = mark === player1Mark;
+
+	if (useCPU) {
+		return isPlayer1 ? "you" : "cpu";
+	}
+
+	return isPlayer1 ? "p1" : "p2";
+};
+
 const StatsBar = () => {
 	const gameStatus = useAppSelector((state) => state.game.gameStatus);
+	const player1Mark = gameStatus.player1Mark;
+	const useCPU = gameStatus.useCPU;
 
-	let xPlayerTitle: PlayerTitle = gameStatus.X.player;
-	let oPlayerTitle: PlayerTitle = gameStatus.O.player;
-
-	if (gameStatus.useCPU) {
-		xPlayerTitle = xPlayerTitle === player1 ? playerYou : playerCPU;
-		oPlayerTitle = oPlayerTitle === player1 ? playerYou : playerCPU;
-	}
+	const xPlayerTitle: PlayerTitle = getPlayerTitle(X, player1Mark, useCPU);
+	const oPlayerTitle: PlayerTitle = getPlayerTitle(O, player1Mark, useCPU);
 
 	return (
 		<div className={style.statsBar}>
@@ -21,7 +32,7 @@ const StatsBar = () => {
 				<div className={style.blockContent}>
 					<div className={style.title}>{`X (${xPlayerTitle})`}</div>
 					<div className={style.count} title="Player X win count">
-						{gameStatus.X.wins}
+						{gameStatus.wins.X}
 					</div>
 				</div>
 			</div>
@@ -29,7 +40,7 @@ const StatsBar = () => {
 				<div className={style.blockContent}>
 					<div className={style.title}>Ties</div>
 					<div className={style.count} title="Tie count">
-						{gameStatus.ties}
+						{gameStatus.wins.ties}
 					</div>
 				</div>
 			</div>
@@ -37,7 +48,7 @@ const StatsBar = () => {
 				<div className={style.blockContent}>
 					<div className={style.title}>{`O (${oPlayerTitle})`}</div>
 					<div className={style.count} title="Player O win count">
-						{gameStatus.O.wins}
+						{gameStatus.wins.O}
 					</div>
 				</div>
 			</div>

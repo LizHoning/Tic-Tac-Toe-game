@@ -7,16 +7,16 @@ import Modal from "../Modal/Modal";
 import Button from "../Button/Button";
 import SecondaryOutcomeText from "./SecondaryOutcomeText";
 import PrimaryOutcomeText from "./PrimaryOutcomeText";
-import { O, X, player1 as p1, tie } from "../../utils/values";
+import { tie } from "../../utils/values";
 
 const RoundOverModal = () => {
 	const gameStatus = useAppSelector((state) => state.game.gameStatus);
 	const dispatch = useAppDispatch();
 
-	if (!gameStatus.winner) return null;
+	if (!gameStatus.roundWinner) return null;
 
-	const winner = gameStatus.winner;
-	const player1 = gameStatus.X.player === p1 ? X : O;
+	const winner = gameStatus.roundWinner;
+	const player1Mark = gameStatus.player1Mark;
 	const isCPU = gameStatus.useCPU;
 	const isTie = winner === tie;
 
@@ -30,7 +30,7 @@ const RoundOverModal = () => {
 				{!isTie && (
 					<SecondaryOutcomeText
 						winner={winner}
-						player1={player1}
+						player1={player1Mark}
 						isCPU={isCPU}
 					/>
 				)}

@@ -76,7 +76,7 @@ describe("App", () => {
 	test("returns to New Game Screen after quitting", () => {
 		// Start the test on the Game screen
 		const state = generateInitialState();
-		state.gameStatus.winner = "X";
+		state.gameStatus.roundWinner = "X";
 		state.gameStarted = true;
 
 		renderWithProviders(<App />, {

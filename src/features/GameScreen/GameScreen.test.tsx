@@ -143,7 +143,7 @@ describe("GameScreen", () => {
 		state.squares["bottom-right"].mark = "X";
 		state.squares["middle-left"].mark = "O";
 		state.squares["middle"].mark = "O";
-		state.gameStatus.currentPlayer = "O";
+		state.gameStatus.currentPlayerMark = "O";
 
 		renderWithProviders(<GameScreen />, {
 			preloadedState: {
@@ -165,7 +165,7 @@ describe("GameScreen", () => {
 		// Win the game by placing an O mark
 		fireEvent.click(unmarkedSquare);
 
-		// Round Over modal is showing with the text "Round tied"
+		// Round Over modal is showing with the text "Player 2 wins!"
 		expect(screen.getByText(/Player 2 wins!/i)).toBeInTheDocument();
 
 		// Tie count is now 1

@@ -40,7 +40,7 @@ describe("GameBoard", () => {
 
 	test("square shows O icon outline on hover", () => {
 		const state = generateInitialState();
-		state.gameStatus.currentPlayer = "O";
+		state.gameStatus.currentPlayerMark = "O";
 		renderWithProviders(<GameBoard />, {
 			preloadedState: { game: state },
 		});
@@ -70,7 +70,7 @@ describe("GameBoard", () => {
 
 	test("marks square with O icon when clicked", () => {
 		const state = generateInitialState();
-		state.gameStatus.currentPlayer = "O";
+		state.gameStatus.currentPlayerMark = "O";
 		renderWithProviders(<GameBoard />, {
 			preloadedState: { game: state },
 		});

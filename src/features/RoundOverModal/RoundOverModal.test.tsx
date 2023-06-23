@@ -10,7 +10,7 @@ describe("RoundOverModal", () => {
 
 		// A winner is required to display the Round Over modal, so use
 		// X as the default here
-		state.gameStatus.winner = "X";
+		state.gameStatus.roundWinner = "X";
 
 		renderWithProviders(<RoundOverModal />, {
 			preloadedState: {
@@ -33,9 +33,8 @@ describe("RoundOverModal", () => {
 
 	test("shows 'Player 1 wins!' when X is player 1 and winner", () => {
 		const state = generateInitialState();
-		state.gameStatus.X.player = "p1";
-		state.gameStatus.O.player = "p2";
-		state.gameStatus.winner = "X";
+		state.gameStatus.player1Mark = "X";
+		state.gameStatus.roundWinner = "X";
 
 		renderWithProviders(<RoundOverModal />, {
 			preloadedState: {
@@ -49,9 +48,8 @@ describe("RoundOverModal", () => {
 
 	test("shows 'Player 1 wins!' when O is player 1 and winner", () => {
 		const state = generateInitialState();
-		state.gameStatus.X.player = "p2";
-		state.gameStatus.O.player = "p1";
-		state.gameStatus.winner = "O";
+		state.gameStatus.player1Mark = "O";
+		state.gameStatus.roundWinner = "O";
 
 		renderWithProviders(<RoundOverModal />, {
 			preloadedState: {
@@ -65,9 +63,8 @@ describe("RoundOverModal", () => {
 
 	test("shows 'Player 2 wins!' when X is player 2 and winner", () => {
 		const state = generateInitialState();
-		state.gameStatus.X.player = "p2";
-		state.gameStatus.O.player = "p1";
-		state.gameStatus.winner = "X";
+		state.gameStatus.player1Mark = "O";
+		state.gameStatus.roundWinner = "X";
 
 		renderWithProviders(<RoundOverModal />, {
 			preloadedState: {
@@ -81,9 +78,8 @@ describe("RoundOverModal", () => {
 
 	test("shows 'Player 2 wins!' when O is player 2 and winner", () => {
 		const state = generateInitialState();
-		state.gameStatus.X.player = "p1";
-		state.gameStatus.O.player = "p2";
-		state.gameStatus.winner = "O";
+		state.gameStatus.player1Mark = "X";
+		state.gameStatus.roundWinner = "O";
 
 		renderWithProviders(<RoundOverModal />, {
 			preloadedState: {
@@ -97,9 +93,8 @@ describe("RoundOverModal", () => {
 
 	test("shows 'You won!' when against CPU and P1 is X and X wins", () => {
 		const state = generateInitialState();
-		state.gameStatus.X.player = "p1";
-		state.gameStatus.O.player = "p2";
-		state.gameStatus.winner = "X";
+		state.gameStatus.player1Mark = "X";
+		state.gameStatus.roundWinner = "X";
 		state.gameStatus.useCPU = true;
 
 		renderWithProviders(<RoundOverModal />, {
@@ -114,9 +109,8 @@ describe("RoundOverModal", () => {
 
 	test("shows 'You won!' when against CPU and P1 is O and O wins", () => {
 		const state = generateInitialState();
-		state.gameStatus.X.player = "p2";
-		state.gameStatus.O.player = "p1";
-		state.gameStatus.winner = "O";
+		state.gameStatus.player1Mark = "O";
+		state.gameStatus.roundWinner = "O";
 		state.gameStatus.useCPU = true;
 
 		renderWithProviders(<RoundOverModal />, {
@@ -131,9 +125,8 @@ describe("RoundOverModal", () => {
 
 	test("shows 'You lost' when against CPU and P1 is X and O wins", () => {
 		const state = generateInitialState();
-		state.gameStatus.X.player = "p1";
-		state.gameStatus.O.player = "p2";
-		state.gameStatus.winner = "O";
+		state.gameStatus.player1Mark = "X";
+		state.gameStatus.roundWinner = "O";
 		state.gameStatus.useCPU = true;
 
 		renderWithProviders(<RoundOverModal />, {
@@ -148,9 +141,8 @@ describe("RoundOverModal", () => {
 
 	test("shows 'You lost' when against CPU and P1 is O and X wins", () => {
 		const state = generateInitialState();
-		state.gameStatus.X.player = "p2";
-		state.gameStatus.O.player = "p1";
-		state.gameStatus.winner = "X";
+		state.gameStatus.player1Mark = "O";
+		state.gameStatus.roundWinner = "X";
 		state.gameStatus.useCPU = true;
 
 		renderWithProviders(<RoundOverModal />, {
@@ -165,7 +157,7 @@ describe("RoundOverModal", () => {
 
 	test("shows 'Round tied' when tie", () => {
 		const state = generateInitialState();
-		state.gameStatus.winner = "tie";
+		state.gameStatus.roundWinner = "tie";
 
 		renderWithProviders(<RoundOverModal />, {
 			preloadedState: {

@@ -39,7 +39,7 @@ describe("squareMarked", () => {
 
 		const expected = generateInitialState();
 		expected.squares["top-left"].mark = "X";
-		expected.gameStatus.currentPlayer = "O";
+		expected.gameStatus.currentPlayerMark = "O";
 
 		expect(
 			reducer(previousState, squareMarked({ id: "top-left" }))
@@ -48,11 +48,11 @@ describe("squareMarked", () => {
 
 	test("should mark square O & change currentPlayer to X", () => {
 		const previousState = generateInitialState();
-		previousState.gameStatus.currentPlayer = "O";
+		previousState.gameStatus.currentPlayerMark = "O";
 
 		const expected = generateInitialState();
 		expected.squares["top-left"].mark = "O";
-		expected.gameStatus.currentPlayer = "X";
+		expected.gameStatus.currentPlayerMark = "X";
 
 		expect(
 			reducer(previousState, squareMarked({ id: "top-left" }))
@@ -68,7 +68,7 @@ describe("restartGameClicked", () => {
 		previousState.squares["middle-left"].mark = "O";
 		previousState.squares["bottom-middle"].mark = "O";
 		previousState.squares["bottom-middle"].isWinningMark = true;
-		previousState.gameStatus.currentPlayer = "O";
+		previousState.gameStatus.currentPlayerMark = "O";
 
 		const expected = generateInitialState();
 
@@ -82,14 +82,13 @@ describe("startGameClicked", () => {
 
 		const expected = generateInitialState();
 		expected.gameStarted = true;
-		expected.gameStatus.X.player = "p1";
-		expected.gameStatus.O.player = "p2";
+		expected.gameStatus.player1Mark = "X";
 		expected.gameStatus.useCPU = false;
 
 		expect(
 			reducer(
 				previousState,
-				startGameClicked({ player1Mark: "X", opponent: "p2" })
+				startGameClicked({ player1Mark: "X", useCPU: false })
 			)
 		).toEqual(expected);
 	});
@@ -99,14 +98,13 @@ describe("startGameClicked", () => {
 
 		const expected = generateInitialState();
 		expected.gameStarted = true;
-		expected.gameStatus.X.player = "p2";
-		expected.gameStatus.O.player = "p1";
+		expected.gameStatus.player1Mark = "O";
 		expected.gameStatus.useCPU = false;
 
 		expect(
 			reducer(
 				previousState,
-				startGameClicked({ player1Mark: "O", opponent: "p2" })
+				startGameClicked({ player1Mark: "O", useCPU: false })
 			)
 		).toEqual(expected);
 	});
@@ -116,14 +114,13 @@ describe("startGameClicked", () => {
 
 		const expected = generateInitialState();
 		expected.gameStarted = true;
-		expected.gameStatus.X.player = "p1";
-		expected.gameStatus.O.player = "p2";
+		expected.gameStatus.player1Mark = "X";
 		expected.gameStatus.useCPU = true;
 
 		expect(
 			reducer(
 				previousState,
-				startGameClicked({ player1Mark: "X", opponent: "cpu" })
+				startGameClicked({ player1Mark: "X", useCPU: true })
 			)
 		).toEqual(expected);
 	});
@@ -132,14 +129,13 @@ describe("startGameClicked", () => {
 
 		const expected = generateInitialState();
 		expected.gameStarted = true;
-		expected.gameStatus.X.player = "p2";
-		expected.gameStatus.O.player = "p1";
+		expected.gameStatus.player1Mark = "O";
 		expected.gameStatus.useCPU = true;
 
 		expect(
 			reducer(
 				previousState,
-				startGameClicked({ player1Mark: "O", opponent: "cpu" })
+				startGameClicked({ player1Mark: "O", useCPU: true })
 			)
 		).toEqual(expected);
 	});
