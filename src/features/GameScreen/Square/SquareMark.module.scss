@@ -1,0 +1,20 @@
+.squareMarkContainer {
+	width: 140px;
+	height: 140px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+
+	&.clickable {
+		cursor: pointer;
+	}
+
+	.iconContainer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		padding-bottom: 8px;
+	}
+}

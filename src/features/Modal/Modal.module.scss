@@ -6,6 +6,7 @@
 	background-color: #000000;
 	opacity: 0.5;
 	position: absolute;
+	z-index: 4;
 }
 
 .modal {
@@ -16,4 +17,5 @@
 	width: 100vw;
 	height: 266px;
 	background-color: colors.$semi-dark-navy;
+	z-index: 5;
 }

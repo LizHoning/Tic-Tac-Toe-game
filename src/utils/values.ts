@@ -33,6 +33,15 @@ export const gameBoard: string[][] = [
 	[bottomLeft, bottomMiddle, bottomRight],
 ];
 
+export const corners: string[] = [topLeft, topRight, bottomLeft, bottomRight];
+
+export const sides: string[] = [
+	topMiddle,
+	middleRight,
+	bottomMiddle,
+	middleLeft,
+];
+
 // An easy testable way of identifying the winning lines.
 // For such a small board (3x3) it makes sense to use this method.
 export const winningCombinations = [

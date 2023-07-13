@@ -14,27 +14,8 @@
 	border: none;
 	border-radius: 10px;
 	color: colors.$dark-navy;
-	background-color: colors.$silver;
-	cursor: pointer;
 
-	&.blue {
-		background-color: colors.$light-blue;
-		&:hover {
-			background-color: colors.$light-blue-hover;
-		}
-	}
-
-	&.yellow {
-		background-color: colors.$light-yellow;
-		&:hover {
-			background-color: colors.$light-yellow-hover;
-		}
-	}
-
-	&.silver {
-		background-color: colors.$silver;
-		&:hover {
-			background-color: colors.$silver-hover;
-		}
+	&.active {
+		cursor: pointer;
 	}
 }

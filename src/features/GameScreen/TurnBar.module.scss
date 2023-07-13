@@ -23,10 +23,16 @@
 			align-items: center;
 			justify-content: space-between;
 
-			.turnIcon {
-				color: colors.$silver;
+			.iconContainer {
 				width: 20px;
 				height: 20px;
+
+				.turnIcon {
+					color: colors.$silver;
+					width: 20px;
+					height: 20px;
+					position: absolute;
+				}
 			}
 
 			.turnText {

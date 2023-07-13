@@ -1,0 +1,16 @@
+@use "src/assets/css/colors";
+
+.icon {
+	height: 64px;
+	width: 64px;
+	position: absolute;
+	color: colors.$semi-dark-navy;
+
+	&.xMark {
+		color: colors.$light-blue;
+	}
+
+	&.oMark {
+		color: colors.$light-yellow;
+	}
+}

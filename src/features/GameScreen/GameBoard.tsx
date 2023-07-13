@@ -1,5 +1,5 @@
 import style from "./GameBoard.module.scss";
-import Square from "./Square";
+import Square from "./Square/Square";
 import { gameBoard } from "../../utils/values";
 
 const GameBoard = () => {

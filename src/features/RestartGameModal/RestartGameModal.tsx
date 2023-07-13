@@ -7,16 +7,33 @@ import Modal from "../Modal/Modal";
 import Button from "../Button/Button";
 import style from "./RestartGameModal.module.scss";
 
+const modalTransitions = {
+	background: {
+		timeout: 400,
+		transitions: {
+			CSSPropertyName: "opacity",
+			enteredValue: 0.5,
+			exitedValue: 0,
+		},
+	},
+	modal: {
+		timeout: 400,
+		transitions: {
+			CSSPropertyName: "opacity",
+			enteredValue: 1,
+			exitedValue: 0,
+		},
+	},
+};
+
 const RestartGameModal = () => {
 	const showRestartGameModal = useAppSelector(
 		(state) => state.game.showRestartGameModal
 	);
 	const dispatch = useAppDispatch();
 
-	if (!showRestartGameModal) return null;
-
 	return (
-		<Modal>
+		<Modal show={showRestartGameModal} transitions={modalTransitions}>
 			<div className={style.modalContents}>
 				<div className={style.text}>Restart game?</div>
 				<div className={style.buttons}>

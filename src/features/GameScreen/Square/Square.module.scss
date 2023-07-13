@@ -1,0 +1,33 @@
+@use "src/assets/css/colors";
+
+.squareContainer {
+	width: 140px;
+	height: 140px;
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+
+	.squareBackground {
+		background-color: colors.$semi-dark-navy;
+		width: 140px;
+		height: 140px;
+		box-shadow: 0px -8px 0px 0px #10212a inset;
+		border-radius: 15px;
+		position: absolute;
+	}
+
+	.winningSquareBackground {
+		@extend .squareBackground;
+
+		box-shadow: 0px -8px 0px 0px rgba(0, 0, 0, 0.25) inset;
+
+		&.xWon {
+			background-color: colors.$light-blue;
+		}
+
+		&.oWon {
+			background-color: colors.$light-yellow;
+		}
+	}
+}
